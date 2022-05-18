@@ -3,7 +3,8 @@
 rules_repository="$1"
 output_type="$2"
 output_file="$3"
-fail_on_result="$4"
+scan_path="$4"
+fail_on_result="$5"
 
 if [[ $fail_on_result == "true" ]]; then
   fail_on_result_cmd="--fail-on-result";
@@ -19,4 +20,4 @@ fi
 
 cd /github/workspace/
 clj-holmes fetch-rules -r "$rules_repository"
-clj-holmes scan -p . $fail_on_result_cmd $output_cmd
+clj-holmes scan -p $scan_path $fail_on_result_cmd $output_cmd

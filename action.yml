@@ -14,6 +14,10 @@ inputs:
     description: 'Output file'
     required: false
     default: 'clj_holmes_scan_results.txt'
+  scan-path:
+    description: 'path to scan'
+    required: false
+    default: ./
   fail-on-result:
     description: 'Enable or disable fail if results were found'
     required: false
@@ -26,6 +30,7 @@ runs:
     - ${{ inputs.rules-repository }}
     - ${{ inputs.output-type }}
     - ${{ inputs.output-file }}
+    - ${{ inputs.scan-path }}
     - ${{ inputs.fail-on-result }}
 
 branding:
